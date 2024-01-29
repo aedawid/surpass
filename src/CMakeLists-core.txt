@@ -1,0 +1,140 @@
+################################# CORE library #################################
+
+ADD_LIBRARY( core STATIC
+	core/SURPASSenvironment.cc
+	core/SURPASSenvironment.hh
+	core/SURPASSversion.cc
+	core/SURPASSversion.hh
+	core/index.hh					# app
+	core/real.hh					# app
+
+
+	core/algorithms/UnionFind.hh			# surpass
+	core/algorithms/SimpleGraph.hh			# internal (Molecule)
+	core/algorithms/basic_algorithms.hh		# internal (DataTable)
+
+
+	core/alignment/on_alignment_computations.cc			# internal (SequenceFilter)
+	core/alignment/on_alignment_computations.hh			# internal (SequenceFilter)
+	core/alignment/PairwiseAlignment.cc				# internal
+	core/alignment/PairwiseAlignment.hh				# internal
+	core/alignment/PairwiseSequenceAlignment.cc			# internal
+	core/alignment/PairwiseSequenceAlignment.fwd.hh			# internal
+	core/alignment/PairwiseSequenceAlignment.hh			# internal
+	core/alignment/PairwiseStructureAlignment.hh			# internal
+	core/alignment/AlignmentBlock.cc				# internal
+	core/alignment/AlignmentBlock.hh				# internal
+	core/alignment/AlignmentRow.hh					# internal
+
+
+	core/calc/sse_math.cc						# internal (Rototranslation)
+	core/calc/sse_math.hh						# internal (Rototranslation)
+	core/calc/numeric/basic_math.cc					# internal (annealing_temperatures)
+	core/calc/numeric/basic_math.hh					# internal (nnealing_temperatures)
+	core/calc/numeric/interpolators.hh				# internal (forcefield)
+	core/calc/numeric/InterpolatePeriodic2D.hh			# internal (forcefield)
+	core/calc/numeric/Interpolate2D.hh				# internal
+	core/calc/numeric/Interpolate1D.hh				# internal
+	core/calc/numeric/Function1D.hh					# internal
+
+	core/calc/statistics/Random.cc					# app surpass
+	core/calc/statistics/Random.hh					# app surpass
+	core/calc/statistics/NormalDistribution.cc			# internal
+	core/calc/statistics/NormalDistribution.hh			# internal
+	core/calc/statistics/PDF.hh					# internal
+	core/calc/statistics/RandomSequenceIterator.hh			# internal (movers)
+
+	core/calc/structural/angles.hh					# internal (MeanFieldDistribution2D)
+	core/calc/structural/calculate_from_structure.hh		# internal (RgSquare)
+	core/calc/structural/transformations/Rototranslation.cc		# internal (CrmsdEvaluator)
+	core/calc/structural/transformations/Rototranslation.hh		# internal (CrmsdEvaluator)
+	core/calc/structural/transformations/transformation_utils.cc	# internal (Rototranslation)
+	core/calc/structural/transformations/transformation_utils.hh	# internal (Rototranslation)
+	core/calc/structural/transformations/Crmsd.hh			# internal (CrmsdEvaluator)
+
+	core/chemical/AtomicElement.cc				# app pdb_to_fasta
+	core/chemical/AtomicElement.hh				# app pdb_to_fasta
+	core/chemical/Monomer.cc				# internal (Sequence)
+	core/chemical/Monomer.hh				# internal (Sequence)
+	core/chemical/monomer_io.cc				# internal (Monomer)
+	core/chemical/monomer_io.hh				# internal (Monomer)
+
+	core/data/basic/Array2D.hh				# internal (SimilarityMatrix)
+	core/data/basic/Vec3.cc					# surpass
+	core/data/basic/Vec3.fwd.hh
+	core/data/basic/Vec3.hh					# app
+	core/data/basic/Vec3Cubic.cc				# internal (EndVectorObserver)
+	core/data/basic/Vec3Cubic.hh				# internal (EndVectorObserver)
+
+	core/data/io/Cif.cc					# internal (read_monomers)
+	core/data/io/Cif.hh					# internal (read_monomers)
+	core/data/io/DataTable.cc				# internal (SurpassContactEnergy)
+	core/data/io/DataTable.hh				# internal (SurpassContactEnergy)
+	core/data/io/DsspData.cc				# app dssp_to_ss2
+	core/data/io/DsspData.hh				# app
+	core/data/io/Pdb.cc					# app pdb_to_fasta
+	core/data/io/Pdb.hh					# app pdb_to_fasta
+	core/data/io/ss2_io.cc					# app dssp_to_ss2
+	core/data/io/ss2_io.hh					# app
+	core/data/io/PdbField.hh				# internal (Structure)
+	core/data/io/fasta_io.cc				# internal (PairwiseSequenceAlignment)
+	core/data/io/fasta_io.hh				# internal (PairwiseSequenceAlignment)
+
+	core/data/sequence/SecondaryStructureAnnotation.hh	# internal (PdbAtom)
+	core/data/sequence/SecondaryStructure.fwd.hh		# surpass
+	core/data/sequence/SecondaryStructure.hh		# surpass
+	core/data/sequence/Sequence.cc				# internal
+	core/data/sequence/Sequence.fwd.hh			# internal
+	core/data/sequence/Sequence.hh				# internal
+	core/data/sequence/sequence_utils.cc			# app dssp_to_ss2
+	core/data/sequence/sequence_utils.hh			# app
+	core/data/sequence/SequenceFilter.cc			# app dssp_to_ss2
+	core/data/sequence/SequenceFilter.hh			# app
+
+	core/data/structural/Structure.cc
+	core/data/structural/Structure.fwd.hh			# app str_calc
+	core/data/structural/Structure.hh			# surpass str_calc
+	core/data/structural/Chain.cc				# app pdb_to_fasta
+	core/data/structural/Chain.fwd.hh			# app pdb_to_fasta
+	core/data/structural/Chain.hh				# app pdb_to_fasta
+	core/data/structural/PdbAtom.cc				# app pdb_to_fasta
+	core/data/structural/PdbAtom.fwd.hh			# app pdb_to_fasta
+	core/data/structural/PdbAtom.hh				# app pdb_to_fasta
+	core/data/structural/Residue.cc				# app pdb_to_fasta
+	core/data/structural/Residue.fwd.hh			# app pdb_to_fasta
+	core/data/structural/Residue.hh				# app pdb_to_fasta
+	core/data/structural/structure_selectors.cc		# internal (Residue)
+	core/data/structural/structure_selectors.fwd.hh		# internal (Residue)
+	core/data/structural/structure_selectors.hh		# internal (Residue)
+
+	utils/options/calc_options.hh				# app
+	utils/options/input_options.hh				# app
+	utils/options/output_options.hh				# app
+	utils/Logger.hh						# app
+	utils/Logger.cc
+	utils/LogManager.cc
+	utils/exit.cc						# app pdb_to_fasta
+	utils/string_utils.cc					# internal
+	utils/io_utils.cc					# app
+	utils/options/Option.cc					# internal (env)
+	utils/options/Option.hh					# internal (env)
+	utils/options/OptionParser.cc				# internal (env)
+	utils/options/OptionParser.hh				# internal (env)
+	utils/exceptions/AtomNotFound.hh			# internal (Residue)
+	utils/exceptions/NoSuchFile.hh				# internal (Pdb)
+)
+TARGET_LINK_LIBRARIES( core ${ZLIB_LIBRARY} )
+
+
+################################# CORE applications #################################
+set (dssp_to_ss2_SOURCES apps/dssp_to_ss2.cc)
+add_executable (dssp_to_ss2 ${dssp_to_ss2_SOURCES})
+TARGET_LINK_LIBRARIES(dssp_to_ss2 core ${ZLIB_LIBRARY})
+
+set (pdb_to_fasta_SOURCES apps/pdb_to_fasta.cc)
+add_executable (pdb_to_fasta ${pdb_to_fasta_SOURCES})
+TARGET_LINK_LIBRARIES(pdb_to_fasta core ${ZLIB_LIBRARY})
+
+
+add_custom_target(core-apps DEPENDS dssp_to_ss2 pdb_to_fasta)
+

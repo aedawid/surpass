@@ -1,0 +1,29 @@
+# R12 is a harmonic energy for pseudo-bonds 
+SurpassR12                 1.0 forcefield/local/R12_surpass.dat 0.001
+
+# R13 is a term that controls distance between i-th and (i+2) atoms
+SurpassR13                 1.0 forcefield/local/R13_surpass.dat 0.001
+
+# R14 is a term that controls distance between i-th and (i+3) atoms
+SurpassR14                 1.0 forcefield/local/R14_surpass.dat 0.001
+
+# R15 is a term that controls distance between i-th and (i+4) atoms
+SurpassR15                 5.0 forcefield/local/R15_surpass.dat 0.001
+
+# SurpassCentrosymetricEnergy is forcing the presence of 50% of the residues at a predetermined distance
+SurpassCentrosymetricEnergy 1.0 -
+
+# SurpassLocalRepulsionEnergy is forcing the presence at most 6(E), 4(C), 2(H) residues in the local repulsion sphere
+SurpassLocalRepulsionEnergy 1.0 -
+
+# SurpassHydrogenBond calculate hydrogen bond energy only between atoms in B-sheets
+SurpassHydrogenBond 10.0 -
+
+# SurpassContactEnergy keeps excluded volume; parameters: high_energy, low_energy, contact_shift
+SurpassContactEnergy 1.0 100.0 -0.5 0.01
+
+# A13 is a term that controls distance between i-th and (i+2) atoms
+#SurpassA13                 0.0 forcefield/local/A13_surpass.dat 0.001
+
+# SurpassHelixStifnessEnergy is a term that controls distance between i-th and (i+2) atoms
+SurpassHelixStifnessEnergy 5.0 -

@@ -1,0 +1,26 @@
+#include <sstream>
+
+#include <core/SURPASSversion.hh>
+
+namespace core {
+
+const std::string SURPASSversion::GIT_HASH = "@GIT_HASH@";
+const std::string SURPASSversion::GIT_TIMESTAMP = "@GIT_TIMESTAMP@";
+const std::string SURPASSversion::GIT_BRANCH = "@GIT_BRANCH@";
+
+std::string SURPASSversion::to_string() {
+
+  std::stringstream str;
+  str << *this;
+  return str.str();
+}
+
+std::ostream & operator<<(std::ostream & out, const SURPASSversion & ver) {
+
+  out << " Git SHA       : " << ver.GIT_HASH << "\n"
+      << " Git branch    : " << ver.GIT_BRANCH << "\n"
+      << " Git timestamp : " << ver.GIT_TIMESTAMP << "\n";
+  return out;
+}
+
+}

@@ -1,0 +1,120 @@
+
+################################# BioSimulations library #################################
+
+ADD_LIBRARY( biosimulations STATIC
+
+		simulations/evaluators/Evaluator.cc				# surpass
+		simulations/evaluators/Evaluator.hh				# TotEnergyByResidue
+		simulations/evaluators/Timer.cc					# surpass
+		simulations/evaluators/Timer.hh					# surpass
+		simulations/evaluators/EchoEvaluator.hh				# surpass
+		simulations/evaluators/cartesian/CrmsdEvaluator.hh		# surpass
+		simulations/evaluators/cartesian/CM.hh				# surpass
+		simulations/evaluators/cartesian/RgSquare.hh			# surpass
+
+
+		simulations/forcefields/CalculateEnergyBase.hh			# byResidueEnergy
+		simulations/forcefields/ByResidueEnergy.hh			# surpass
+		simulations/forcefields/LongRangeByResidues.hh			# surpass
+		simulations/forcefields/ShortRangeEnergyBase.hh			# mf-short-range
+		simulations/forcefields/TotalEnergy.hh				# TotEnergyByResidue
+		simulations/forcefields/TotalEnergyByResidue.cc			# surpass
+		simulations/forcefields/TotalEnergyByResidue.hh			# surpass
+		simulations/forcefields/ForceFieldConfig.cc			# surpass
+		simulations/forcefields/ForceFieldConfig.hh			# surpass
+
+
+		simulations/forcefields/mf/BoundedMFComponent.hh		# MeanFieldDistributions
+		simulations/forcefields/mf/MeanFieldDistributions.cc		# mf-short-range
+		simulations/forcefields/mf/MeanFieldDistributions.hh		# mf-short-range
+		simulations/forcefields/mf/ShortRangeMFBase.hh			# surpass
+
+		simulations/forcefields/surpass/surpass_force_field_factory.hh
+		simulations/forcefields/surpass/SurpassCentrosymetricEnergy.hh
+		simulations/forcefields/surpass/SurpassHelixStifnessEnergy.hh
+		simulations/forcefields/surpass/SurpassHydrogenBond.hh
+		simulations/forcefields/surpass/SurpassContactEnergy.hh
+		simulations/forcefields/surpass/SurpassLocalRepulsionEnergy.hh
+		simulations/forcefields/surpass/SurpassR12.hh
+		simulations/forcefields/surpass/SurpassR13.hh
+		simulations/forcefields/surpass/SurpassR14.hh
+		simulations/forcefields/surpass/SurpassR15.hh
+		simulations/forcefields/surpass/SurpassA13.hh
+
+		simulations/movers/PerturbResidue.cc				# internal (system)
+		simulations/movers/PerturbResidue.hh				# internal (system)
+		simulations/movers/PerturbChainFragment.cc			# internal (system)
+		simulations/movers/PerturbChainFragment.hh			# internal (system)
+		simulations/movers/MoversSet.cc					# internal (system)
+		simulations/movers/MoversSet.hh					# internal (system)
+		simulations/movers/Mover.hh
+
+		simulations/observers/ObserveEvaluators.cc			# internal ()
+		simulations/observers/ObserveEvaluators.hh			# internal ()
+		simulations/observers/ObserveEnergyComponents.cc		# internal
+		simulations/observers/ObserveEnergyComponents.hh		# internal
+		simulations/observers/ObserveMoversAcceptance.cc		# internal
+		simulations/observers/ObserveMoversAcceptance.hh		# internal
+		simulations/observers/ObserveReplicaFlow.cc			# basic
+		simulations/observers/ObserveReplicaFlow.fwd.hh			# basic
+		simulations/observers/ObserveReplicaFlow.hh			# basic
+		simulations/observers/ObserverInterface.hh			# ToStreamObserver
+		simulations/observers/ToStreamObserver.hh			# surpass
+
+		simulations/observers/cartesian/AbstractPdbObserver.hh		# PdbObserver
+		simulations/observers/cartesian/EndVectorObserver.cc		# surpass
+		simulations/observers/cartesian/EndVectorObserver.hh		# surpass
+		simulations/observers/cartesian/PdbObserver.hh			# surpass
+		simulations/observers/cartesian/PymolObserver.hh		# surpass
+		simulations/observers/cartesian/TraxObserver.cc
+		simulations/observers/cartesian/TraxObserver.hh
+
+		simulations/observers/surpass/ObserveTopologyMatrix.hh
+
+		simulations/systems/BuildPolymerChain.cc		# CartesianAtomSimple
+		simulations/systems/BuildPolymerChain.hh		# CartesianAtomSimple
+		simulations/systems/AtomTypingVariants.cc		# ResidueChain
+		simulations/systems/AtomTypingVariants.hh		# ResidueChain
+		simulations/systems/AtomTypingInterface.hh		# ResidueChain
+		simulations/systems/CartesianAtomsSimple.hh		# ResidueChain
+		simulations/systems/ResidueChain.hh			# surpass
+		simulations/systems/AtomTypingBase.cc			# surpass
+		simulations/systems/AtomTypingBase.hh			# surpass
+		simulations/systems/SingleAtomType.hh
+
+		simulations/systems/surpass/SurpassAtomTyping.cc
+		simulations/systems/surpass/SurpassAtomTyping.hh
+		simulations/systems/surpass/SurpassModel.hh
+
+		simulations/representations/surpass_utils.cc
+		simulations/representations/surpass_utils.hh
+
+		simulations/sampling/ReplicaExchangeMC.cc		# basic
+		simulations/sampling/SimulatedAnnealing.cc		# basic
+		simulations/sampling/IsothermalMC.cc			# basic
+
+		simulations/sampling/AbstractAcceptanceCriterion.hh	# Mover
+		simulations/sampling/MetropolisAcceptanceCriterion.hh	# basic
+		simulations/sampling/ReplicaExchangeMC.hh		# basic
+		simulations/sampling/ReplicaExchangeMC.fwd.hh		# basic
+		simulations/sampling/SamplingProtocolBase.hh		# basic
+		simulations/sampling/SimulatedAnnealing.hh		# basic
+		simulations/sampling/IsothermalMC.hh			# basic
+
+		utils/options/sampling_options.hh
+		utils/options/scoring_options.hh
+		utils/options/sampling_from_cmdline.cc
+		utils/options/sampling_from_cmdline.hh
+)
+TARGET_LINK_LIBRARIES( biosimulations ${ZLIB_LIBRARY} core )
+                                    
+
+################################# BioSimulations applications #################################
+
+set (surpass_SOURCES apps/surpass.cc )
+add_executable (surpass ${surpass_SOURCES})
+TARGET_LINK_LIBRARIES(surpass core biosimulations ${ZLIB_LIBRARY} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
+
+set (surpass_representation_SOURCES apps/surpass_representation.cc )
+add_executable (surpass_representation ${surpass_representation_SOURCES})
+TARGET_LINK_LIBRARIES(surpass_representation core biosimulations ${ZLIB_LIBRARY} ${ZLIB_LIBRARY} ${CMAKE_THREAD_LIBS_INIT})
