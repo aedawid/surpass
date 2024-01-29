@@ -30,3 +30,15 @@
 *.exe
 *.out
 *.app
+
+# Other
+*.dSYM/
+.cproject
+.idea/
+.project
+.settings/
+bin/
+build/
+cmake-build-debug/
+cmake-build-release/
+cmake-build/
