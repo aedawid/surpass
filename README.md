@@ -2,10 +2,20 @@
 `C++`  |   **Low-resolution coarse-grained protein model and knowledge-based force field**
 ---
 
-For an in-depth understanding of the model representation and the intricacies of the knowledge-based force field, please refer to the detailed descriptions provided in the SURPASS publication.
+For an in-depth understanding of the model representation and the intricacies of the knowledge-based force field, please refer to the detailed descriptions provided in the SURPASS publication(s).
 
-Aleksandra E. Dawid, Dominik Gront, and Andrzej Kolinski, ***SURPASS Low-Resolution Coarse-Grained Protein Modeling***, J. Chem. Theory Comput. 2017, 13, 11, 5766–5779; <a href="https://doi.org/10.1021/acs.jctc.7b00642">DOI: https://doi.org/10.1021/acs.jctc.7b00642 </a>
+1. A. E. Dawid, D. Gront, and A. Kolinski, ***SURPASS Low-Resolution Coarse-Grained Protein Modeling***, J. Chem. Theory Comput. 2017, 13 (11), 5766–5779; <a href="https://doi.org/10.1021/acs.jctc.7b00642">DOI</a>
 
+2. A. E. Dawid, D. Gront, and A. Kolinski, ***Coarse-grained modeling of the interplay between secondary structure propensities and protein fold assembly***, J. Chem. Theory Comput. 2018, 14 (4), 2277-2287; <a href="https://pubs.acs.org/doi/abs/10.1021/acs.jctc.7b01242">DOI</a>
+
+3. A. E. Badaczewska-Dawid, A. Kolinski, S. Kmiecik, ***Protocols for fast simulations of protein structure flexibility using CABS-flex and SURPASS***, Protein Structure Prediction. Methods in Molecular Biology. 2020, 2165, 337-353; <a href="https://link.springer.com/protocol/10.1007/978-1-0716-0708-4_20">DOI</a>
+
+<br>
+
+**NOTE:** Parts of the source code in `src/core` were adapted from the [BioShell](https://bitbucket.org/dgront/bioshell/src/master/) structural biology library, the birthplace of the SURPASS model. This (aedawid/[surpass](https://github.com/aedawid/surpass/)) repository contains just the essential source code you need for **SURPASS** *(compilation time: ~1m30s)*, preserving the model in its initial form as detailed in the original publications and ensuring the performance originally reported (2017-2018).
+
+
+**WARNING:** *Please be mindful that the `surpass code` in the BioShell library has branched off in a different direction and should be considered a separate tool now, with the understanding that its purpose, outcomes and performance may vary from the original.*
 
 ## Installation
 
@@ -15,11 +25,11 @@ Ensure that you have `git`, a C++ compiler like `g++`, `cmake` and `make` instal
 * You can install these on a Debian-based system (like Ubuntu) using:
 ```
 sudo apt update
-sudo apt install git g++ make
+sudo apt install git g++ cmake make
 ```
 * For Red Hat-based systems (like Fedora), you can use:
 ```
-sudo dnf install git gcc-c++ make
+sudo dnf install git gcc-c++ cmake make
 ```
 
 ### Download this repo and build surpass app 
